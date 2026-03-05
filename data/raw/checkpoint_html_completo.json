@@ -1,0 +1,27 @@
+{
+  "paginas_coletadas": [
+    67,
+    6,
+    73,
+    9,
+    75,
+    13,
+    81,
+    89,
+    91,
+    29,
+    95,
+    33,
+    34,
+    35,
+    99,
+    53
+  ],
+  "stats": {
+    "total_sessoes": 1,
+    "total_paginas": 16,
+    "total_registros_am": 35,
+    "ultima_execucao": "2026-02-13T12:27:03.439594"
+  },
+  "timestamp": "2026-02-13T12:27:03.439594"
+}
