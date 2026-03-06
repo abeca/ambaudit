@@ -471,7 +471,7 @@ def main():
                         tipos_count,
                         values='Quantidade',
                         names='Tipo',
-                        color_discrete_sequence=px.colors.sequential.Greens
+                        color_discrete_sequence=px.colors.qualitative.Set2
                     )
                     fig.update_layout(height=400)
                     st.plotly_chart(fig, use_container_width=True)
@@ -491,7 +491,7 @@ def main():
                     orientation='h',
                     color='tipo_infracao',
                     labels={'valor_numerico': 'Valor (R$)', 'nom_pessoa_infrator': 'Infrator'},
-                    color_discrete_sequence=px.colors.sequential.Greens
+                    color_discrete_sequence=px.colors.qualitative.Set2
                 )
                 fig.update_layout(height=400, showlegend=True)
                 st.plotly_chart(fig, use_container_width=True)
