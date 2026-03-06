@@ -14,8 +14,16 @@ import os
 from datetime import datetime
 
 
+def get_secret(key_name):
+    """Lê segredo do st.secrets (Streamlit Cloud) ou .env (local)"""
+    try:
+        return st.secrets[key_name]
+    except Exception:
+        return os.getenv(key_name)
+
+
 def get_fernet():
-    key = os.getenv("ENCRYPTION_KEY")
+    key = get_secret("ENCRYPTION_KEY")
     if not key:
         return None
     return Fernet(key.encode())
@@ -47,13 +55,8 @@ st.markdown("""
     .main {
         padding: 0rem 1rem;
     }
-    .stMetric {
-        background-color: #f0f2f6;
-        padding: 10px;
-        border-radius: 5px;
-    }
     h1 {
-        color: #2e7d32;
+        color: #4caf50;
     }
     .highlight {
         background-color: #ffeb3b;
@@ -69,13 +72,13 @@ load_dotenv()
 @st.cache_resource
 def init_supabase():
     """Inicializa conexão com Supabase"""
-    supabase_url = os.getenv("SUPABASE_URL")
-    supabase_key = os.getenv("SUPABASE_KEY")
-    
+    supabase_url = get_secret("SUPABASE_URL")
+    supabase_key = get_secret("SUPABASE_KEY")
+
     if not supabase_url or not supabase_key:
-        st.error("⚠️ Credenciais do Supabase não encontradas no arquivo .env")
+        st.error("⚠️ Credenciais do Supabase não encontradas (.env ou Streamlit Secrets)")
         st.stop()
-    
+
     return create_client(supabase_url, supabase_key)
 
 @st.cache_data(ttl=300)
