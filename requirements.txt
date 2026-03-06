@@ -1,9 +1,6 @@
-requests==2.31.0
-pandas==2.1.4
-openpyxl==3.1.2
-beautifulsoup4==4.12.2
-supabase==2.3.4
-python-dotenv==1.0.0
-streamlit==1.31.0
-plotly==5.18.0
-cryptography>=41.0.0
+pandas
+supabase
+python-dotenv
+streamlit
+plotly
+cryptography
